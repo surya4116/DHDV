@@ -1,0 +1,9 @@
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+sales <- c(120, 150, 180, 170, 200, 220,
+           210, 230, 250, 240, 260, 300)
+
+plot(sales, type = "o", col = "blue", lwd = 2,
+     xaxt = "n", xlab = "Month", ylab = "Sales",
+     main = "Monthly Sales Trend")
+axis(1, at = 1:12, labels = months)

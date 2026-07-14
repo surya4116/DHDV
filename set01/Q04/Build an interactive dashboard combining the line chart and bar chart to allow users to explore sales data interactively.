@@ -1,0 +1,36 @@
+library(shiny)
+months <- c("January", "February", "March", "April", "May")
+sales <- c(15000, 18000, 22000, 20000, 23000)
+products <- c("Laptop", "Smartphone", "Tablet", "Headphones", "Smartwatch")
+product_sales <- c(500, 800, 300, 450, 600)
+ui <- fluidPage(
+  titlePanel("Interactive Sales Dashboard"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("chartType", "Choose Chart:",
+                  choices = c("Monthly Sales Trend", "Top-Selling Products"))
+    ),
+    mainPanel(
+      plotOutput("salesPlot")
+    )
+  )
+)
+server <- function(input, output) {
+  output$salesPlot <- renderPlot({
+    if (input$chartType == "Monthly Sales Trend") {
+      plot(sales, type = "o", col = "blue", lwd = 2,
+           xaxt = "n", xlab = "Month", ylab = "Sales ($)",
+           main = "Monthly Sales Trend")
+      axis(1, at = 1:length(months), labels = months)
+    } else {
+      barplot(product_sales,
+              names.arg = products,
+              col = "skyblue",
+              main = "Top-Selling Products of the Year",
+              xlab = "Products",
+              ylab = "Units Sold",
+              border = "black")
+    }
+  })
+}
+shinyApp(ui = ui, server = server)

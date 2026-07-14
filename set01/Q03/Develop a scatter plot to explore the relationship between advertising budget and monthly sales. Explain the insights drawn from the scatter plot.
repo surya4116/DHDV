@@ -1,0 +1,8 @@
+advertising_budget <- c(21, 28, 42, 49, 65, 70) 
+monthly_sales <- c(200, 250, 300, 350, 400, 450)  
+plot(advertising_budget, monthly_sales,
+     main = "Advertising Budget vs Monthly Sales",
+     xlab = "Advertising Budget (in $1000s)",
+     ylab = "Monthly Sales (Units)",
+     pch = 19, col = "darkblue")
+abline(lm(monthly_sales ~ advertising_budget), col = "red", lwd = 2)

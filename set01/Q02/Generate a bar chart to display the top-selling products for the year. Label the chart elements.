@@ -1,0 +1,9 @@
+products <- c("Laptop", "Smartphone", "Tablet", "Headphones", "Smartwatch")
+sales <- c(500, 800, 300, 450, 600)
+barplot(sales,
+        names.arg = products,
+        col = "skyblue",
+        main = "Top-Selling Products of the Year",
+        xlab = "Products",
+        ylab = "Units Sold",
+        border = "black")

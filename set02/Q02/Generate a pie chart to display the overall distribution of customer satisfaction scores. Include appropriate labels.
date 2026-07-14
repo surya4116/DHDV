@@ -1,0 +1,10 @@
+customer_id <- c(1, 2, 3, 4, 5)
+age <- c(25, 30, 35, 28, 40)
+satisfaction_score <- c(4, 5, 3, 4, 5)
+score_counts <- table(satisfaction_score)
+percentages <- round(100 * score_counts / sum(score_counts), 1)
+labels <- paste("Score", names(score_counts), "\n", percentages, "%")
+pie(score_counts,
+    labels = labels,
+    main = "Distribution of Customer Satisfaction Scores",
+    col = c("lightblue", "lightgreen", "lightpink", "lightyellow", "lightgray"))
